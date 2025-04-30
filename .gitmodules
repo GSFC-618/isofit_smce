@@ -1,0 +1,3 @@
+[submodule "isofit_src"]
+	path = src/isofit
+	url = https://github.com/isofit/isofit
