@@ -14,7 +14,7 @@ USER mambauser
 WORKDIR /home/mambauser
 
 # Copy and install the ISOFIT environment
-COPY --chown=mambauser:mambauser . ISOFIT/
+COPY --chown=mambauser:mambauser isofit/ ISOFIT/
 RUN micromamba config prepend channels conda-forge &&\
     micromamba update  --all --yes &&\
     micromamba install --name base jupyterlab &&\
