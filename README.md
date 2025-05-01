@@ -91,5 +91,19 @@ bash /isofit_data/examples/20151026_SantaMonica/run.sh
 
 6) The new ISOFIT image and data are now ready to run more examples or run new processing workflows!
 
+You can also explore additional examples and customizations using the ISOFIT documentation
+https://isofit.readthedocs.io/en/latest/custom/docker.html#getting-started
+
+e.g. 
+To use the provided JupyterHub deployment, you can follow the provided instructions by including your newly created directories on your local host, 
+
+```
+docker run --rm --shm-size=16gb -p 8888:8888 -v ~/Data/isofit_home:/home/mambauser/.isofit \
+-v ~/Data/isofit_data_docker:/isofit_data serbinsh/isofit_smce
+```
+
+After this runs, you can enter into the running container using your browser and navigating to 
+[https://127.0.0.1:8888](http://127.0.0.1:8888/lab)
+
 
 <b>NOTE: Improved documentation to come<b>
