@@ -36,6 +36,7 @@ This will confirm you can enter the image at the Bash command line. At this stag
 ![Screenshot 2025-05-01 at 9 36 07 AM](https://github.com/user-attachments/assets/53f63fb2-371d-41d3-b54f-3431227edb3c)
 
 You will also see the stub for where we will map in the external ISOFT examples and data within the container, located at /isofit_data
+<br>
 ![Screenshot 2025-05-01 at 9 36 59 AM](https://github.com/user-attachments/assets/05c05ee3-fe18-499e-bbcd-c7022f401ec2)
 
 2) You can confirm the isofit library is functionl and check the version by running <br>
