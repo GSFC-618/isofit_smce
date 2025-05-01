@@ -2,9 +2,10 @@
 Helper code to build a lightweight version of the ISOFIT code (without the data embedded in the container) to run on the SMCE
 
 <br>
-<br>
 
 ### To update the version of ISOFIT submodule you can run:
+
+<br>
 
 ```
 git submodule update --remote --merge
