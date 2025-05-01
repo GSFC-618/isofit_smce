@@ -4,6 +4,12 @@ Helper code to build a lightweight version of the ISOFIT code (without the data 
 <br>
 <br>
 
+### To update the version of ISOFIT submodule you can run:
+
+```
+git submodule update --remote --merge
+```
+
 ### To build the images locally, run
 
 Clone the repo and cd into the directory
