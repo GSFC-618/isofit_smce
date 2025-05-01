@@ -21,7 +21,7 @@ This will build the image without the embedded ISOFT examples and data. After th
 https://hub.docker.com/repository/docker/serbinsh/isofit_smce/general
 
 You can run ```docker images``` or ```docker image ls``` to see the newly built image
-e.g.
+e.g. <br>
 
 ![Screenshot 2025-05-01 at 9 34 21 AM](https://github.com/user-attachments/assets/7e5f5685-c225-4eec-b4ba-e12854b17f5b)
 
@@ -32,6 +32,7 @@ e.g.
 1) ```docker run --rm -it serbinsh/isofit_smce bash```
 This will confirm you can enter the image at the Bash command line. At this stage you should only see the ISOFIT code directory in home
 
+<br>
 ![Screenshot 2025-05-01 at 9 36 07 AM](https://github.com/user-attachments/assets/53f63fb2-371d-41d3-b54f-3431227edb3c)
 
 You will also see the stub for where we will map in the external ISOFT examples and data within the container, located at /isofit_data
@@ -40,6 +41,8 @@ You will also see the stub for where we will map in the external ISOFT examples 
 2) You can confirm the isofit library is functionl and check the version by running <br>
 ```docker run --rm -it serbinsh/isofit_smce isofit --version```
 
+<br>
+ 
 ![Screenshot 2025-05-01 at 9 37 43 AM](https://github.com/user-attachments/assets/66bae264-f944-4cc9-9236-37866ac008de)
 
 3) Next you can initialize or check the status of the external ISOFIT data and examples by running
