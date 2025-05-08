@@ -1,16 +1,23 @@
-FROM --platform=$BUILDPLATFORM mambaorg/micromamba
+FROM mambaorg/micromamba
+#FROM --platform=linux/amd64 mambaorg/micromamba
+#FROM --platform=$BUILDPLATFORM mambaorg/micromamba
 
 USER root
 RUN apt-get update &&\
     apt-get install --no-install-recommends -y \
       gfortran \
       make \
+      unzip \
       nano \
-      vim
+      vim \
+      wget \
+      curl \
+      git
 
 RUN mkdir -p /isofit_data
 RUN chown mambauser:mambauser /isofit_data
 USER mambauser
+#RUN mkdir -p /home/mambauser/.isofit
 WORKDIR /home/mambauser
 
 # Copy and install the ISOFIT environment
