@@ -34,10 +34,15 @@ RUN micromamba config prepend channels conda-forge &&\
 ENV PATH=/opt/conda/envs/isofit/bin:$PATH
 
 # Install ISOFIT and extra files
+# Should probably change this to explicitly using the git releases instead of via pip?
 RUN python -m ipykernel install --user --name isofit &&\
     pip install -e ISOFIT
 # note: here we are now skipping embedding the ISOFIT data into the image
 
+# Create a symlink from the host isofit_data location to /home/mambauser
+RUN cd /home/mambauser &&\
+    ln -s /isofit_data/ .
+    
 # Jupyter needs this to access the terminal
 ENV SHELL="/bin/bash"
 
@@ -48,6 +53,9 @@ EXPOSE 8265
 EXPOSE 8888
 
 # note: here we are now making sure to map to the new /isofit_data folder in the image root
-CMD ["jupyter-lab", "--ip", "0.0.0.0", "--no-browser", "--allow-root", "--ServerApp.token=''", "--ServerApp.password=''", "/isofit_data/examples/isotuts/NEON/neon.ipynb"]
+#CMD ["jupyter-lab", "--ip", "0.0.0.0", "--no-browser", "--allow-root", "--ServerApp.token=''", "--ServerApp.password=''", "/isofit_data/examples/isotuts/NEON/neon.ipynb"]
+
+# NOTE: Updating the CMD arguments to start the user in /home/mambauser to allow for expanded access to the file system inside the container
+CMD ["jupyter-lab", "--ip", "0.0.0.0", "--no-browser", "--allow-root", "--ServerApp.token=''", "--ServerApp.password=''", "/home/mambauser"]
 
 ### EOF
