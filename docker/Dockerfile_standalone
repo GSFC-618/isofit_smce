@@ -1,6 +1,4 @@
 FROM mambaorg/micromamba
-#FROM --platform=linux/amd64 mambaorg/micromamba
-#FROM --platform=$BUILDPLATFORM mambaorg/micromamba
 
 USER root
 RUN apt-get update &&\
@@ -51,9 +49,6 @@ EXPOSE 8265
 
 # Start the Jupyterlab server
 EXPOSE 8888
-
-# note: here we are now making sure to map to the new /isofit_data folder in the image root
-#CMD ["jupyter-lab", "--ip", "0.0.0.0", "--no-browser", "--allow-root", "--ServerApp.token=''", "--ServerApp.password=''", "/isofit_data/examples/isotuts/NEON/neon.ipynb"]
 
 # NOTE: Updating the CMD arguments to start the user in /home/mambauser to allow for expanded access to the file system inside the container
 CMD ["jupyter-lab", "--ip", "0.0.0.0", "--no-browser", "--allow-root", "--ServerApp.token=''", "--ServerApp.password=''", "/home/mambauser"]
