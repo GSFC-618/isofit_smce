@@ -8,6 +8,9 @@ Helper code to build a lightweight version of the ISOFIT code (without the data 
 <br>
 
 ```
+
+git submodule update --init --recursive
+
 git submodule update --remote --merge
 ```
 
