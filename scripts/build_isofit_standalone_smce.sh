@@ -19,6 +19,6 @@ sleep 1
 
 # Build the ISOFIT docker image without the embedded datasets
 docker buildx build --push -t serbinsh/isofit_smce:$CI_COMMIT_TAG_DOCKER --no-cache \
---platform linux/amd64 -f docker/Dockerfile .
+--platform linux/amd64 -f docker/Dockerfile_standalone_smce .
 
 ## EOF
