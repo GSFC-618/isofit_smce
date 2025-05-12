@@ -8,7 +8,7 @@ cd ..
 echo $PWD
 
 # Create tag
-CI_COMMIT_TAG_DOCKER="multiarch_"${CI_COMMIT_TAG}
+CI_COMMIT_TAG_DOCKER="smce_"${CI_COMMIT_TAG}
 echo "Docker ISOFIT tag: ${CI_COMMIT_TAG_DOCKER}"
 
 echo ""
@@ -18,7 +18,7 @@ echo "**************************************************************************
 sleep 1
 
 # Build the ISOFIT docker image without the embedded datasets
-docker buildx build --push -t serbinsh/isofit_smce:smce --no-cache \
+docker buildx build --push -t serbinsh/isofit_smce:$CI_COMMIT_TAG_DOCKER --no-cache \
 --platform linux/amd64 -f docker/Dockerfile .
 
 ## EOF
