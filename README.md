@@ -3,6 +3,11 @@ Helper code to build a lightweight version of the ISOFIT code (without the data 
 
 <br>
 
+!!! NOTE!!! Documentation needs updating - coming soon
+
+
+<br>
+
 ### To update the version of ISOFIT submodule you can run:
 
 <br>
