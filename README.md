@@ -44,7 +44,7 @@ e.g. <br>
 
 ### To test the build you can run the following steps:
 
-1) ```docker run --rm -it serbinsh/isofit_smce:multiarch_v3.4.1 bash```
+1) ```docker run --rm -it serbinsh/isofit_smce:multiarch_v3.4.2 bash```
 This will confirm you can enter the image at the Bash command line. At this stage you should only see the ISOFIT code directory in home
 
 <br>
@@ -56,7 +56,7 @@ You will also see the stub for where we will map in the external ISOFT examples 
 ![Screenshot 2025-05-01 at 9 36 59 AM](https://github.com/user-attachments/assets/05c05ee3-fe18-499e-bbcd-c7022f401ec2)
 
 2) You can confirm the isofit library is functionl and check the version by running <br>
-```docker run --rm -it serbinsh/isofit_smce:multiarch_v3.4.1 isofit --version```
+```docker run --rm -it serbinsh/isofit_smce:multiarch_v3.4.2 isofit --version```
 
 <br>
  
@@ -66,7 +66,7 @@ You will also see the stub for where we will map in the external ISOFT examples 
 
 ```
 docker run --rm -it -v ~/Data/isofit_home:/home/mambauser/.isofit \
--v ~/Data/isofit_data_docker:/isofit_data serbinsh/isofit_smce:multiarch_v3.4.1 \
+-v ~/Data/isofit_data_docker:/isofit_data serbinsh/isofit_smce:multiarch_v3.4.2 \
 isofit -b /isofit_data download all
 ```
 
@@ -84,7 +84,7 @@ to map into the empty stub directories within the container
 
 ```
 docker run --rm -it -v ~/Data/isofit_home:/home/mambauser/.isofit \
--v ~/Data/isofit_data_docker:/isofit_data serbinsh/isofit_smce:multiarch_v3.4.1 \
+-v ~/Data/isofit_data_docker:/isofit_data serbinsh/isofit_smce:multiarch_v3.4.2 \
 isofit build
 ```
 
@@ -92,7 +92,7 @@ isofit build
 
 ```
 docker run --rm -it --shm-size=16gb -v ~/Data/isofit_home:/home/mambauser/.isofit \
--v ~/Data/isofit_data_docker:/isofit_data serbinsh/isofit_smce:multiarch_v3.4.1 \
+-v ~/Data/isofit_data_docker:/isofit_data serbinsh/isofit_smce:multiarch_v3.4.2 \
 bash /isofit_data/examples/20151026_SantaMonica/run.sh
 ```
   
@@ -107,7 +107,7 @@ To use the provided JupyterHub deployment, you can follow the provided instructi
 
 ```
 docker run --rm --shm-size=16gb -p 8888:8888 -v ~/Data/isofit_home:/home/mambauser/.isofit \
--v ~/Data/isofit_data_docker:/isofit_data serbinsh/isofit_smce:multiarch_v3.4.1
+-v ~/Data/isofit_data_docker:/isofit_data serbinsh/isofit_smce:multiarch_v3.4.2
 ```
 
 After this runs, you can enter into the running container using your browser and navigating to 
