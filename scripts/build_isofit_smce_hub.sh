@@ -2,7 +2,8 @@
 
 cd isofit
 echo $PWD
-CI_COMMIT_TAG=$(git describe --tags --abbrev=0)
+#CI_COMMIT_TAG=$(git describe --tags --abbrev=0)
+CI_COMMIT_TAG=$(git tag -l --sort=-creatordate | head -n 1)
 echo "Latest ISOFIT release: ${CI_COMMIT_TAG}"
 cd ..
 echo $PWD
@@ -30,6 +31,10 @@ aws ecr-public get-login-password --region us-east-1 | docker login --username A
 #docker buildx create --use
 
 docker buildx build --push -t public.ecr.aws/u1d0n1w0/isofit-test:latest --no-cache \
+--platform linux/amd64 -f docker/Dockerfile_smce_hub .
+
+# Push to the new ECR as well - will update this when we fully switch from the non-test to the deployment ECR
+docker buildx build --push -t public.ecr.aws/u1d0n1w0/airborne_isofit_deployment:latest --no-cache \
 --platform linux/amd64 -f docker/Dockerfile_smce_hub .
 
 #echo ""

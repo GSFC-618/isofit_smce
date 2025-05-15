@@ -5,15 +5,16 @@ USER root
 
 RUN apt-get update &&\
     apt-get install --no-install-recommends -y \
-      gfortran \
-      make \
-      nano \
-      vim \
-      unzip \
-      wget \
-      curl \
-      git \
-      htop
+        gcc \
+        gfortran \
+        make \
+        nano \
+        vim \
+        unzip \
+        wget \
+        curl \
+        git \
+        htop
 
 #RUN mkdir -p /isofit_data
 # RUN chown mambauser:mambauser /isofit_data

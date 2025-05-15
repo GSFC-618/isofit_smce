@@ -2,7 +2,8 @@
 
 cd isofit
 echo $PWD
-CI_COMMIT_TAG=$(git describe --tags --abbrev=0)
+#CI_COMMIT_TAG=$(git describe --tags --abbrev=0)
+CI_COMMIT_TAG=$(git tag -l --sort=-creatordate | head -n 1)
 echo "Latest ISOFIT release: ${CI_COMMIT_TAG}"
 cd ..
 echo $PWD
@@ -16,6 +17,8 @@ echo ""
 echo "Building new ISOFIT image: ${CI_COMMIT_TAG_DOCKER}"
 echo "************************************************************************************"
 sleep 1
+
+#docker buildx inspect --bootstrap
 
 # Build the ISOFIT docker image without the embedded datasets
 # Multi-arch version - what additional architectures should be included here?
