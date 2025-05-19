@@ -31,6 +31,7 @@ COPY isofit/ ISOFIT/
 # Provide ISOFIT data download script
 COPY scripts/dl_isofit_data.sh /opt/scripts/
 
+#!!! Do we also want micromamba?? !!
 # RUN mamba config prepend channels conda-forge
 RUN mamba update --all --yes --quiet
 # RUN mamba install --name base jupyterlab
