@@ -2,7 +2,8 @@
 
 cd isofit
 echo $PWD
-CI_COMMIT_TAG=$(git describe --tags --abbrev=0)
+#CI_COMMIT_TAG=$(git describe --tags --abbrev=0)
+CI_COMMIT_TAG=$(git tag -l --sort=-creatordate | head -n 1)
 echo "Latest ISOFIT release: ${CI_COMMIT_TAG}"
 cd ..
 echo $PWD
