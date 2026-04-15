@@ -26,7 +26,7 @@ COPY --chown=mambauser:mambauser isofit/ ISOFIT/
 RUN micromamba config prepend channels conda-forge &&\
     micromamba update  --all --yes --quiet &&\
     micromamba install --name base --quiet jupyterlab &&\
-    micromamba create  --name isofit --quiet python=3.10 &&\
+    micromamba create  --name isofit --quiet python=3.11 &&\
     micromamba install --name isofit --quiet --file ISOFIT/recipe/isofit.yml \
                                      --quiet --file ISOFIT/recipe/docker.yml &&\
     echo "micromamba activate isofit" >> ~/.bashrc
