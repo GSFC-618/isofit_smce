@@ -3,7 +3,9 @@ FROM mambaorg/micromamba
 USER root
 RUN apt-get update &&\
     apt-get install --no-install-recommends -y \
-       gcc \ 
+       build-essential \
+       gcc \
+       g++ \
        gfortran \
        make \
        unzip \
@@ -12,10 +14,19 @@ RUN apt-get update &&\
        wget \
        curl \
        git \
-       htop
+       htop \
+       flex \
+       libnetcdff-dev \
+       libgsl-dev \
+       gsl-bin \
+       perl
 
 RUN mkdir -p /isofit_data
 RUN chown mambauser:mambauser /isofit_data
+RUN mkdir -p /data_processing
+RUN chown mambauser:mambauser /data_processing
+RUN mkdir -p /isofit_inputs
+RUN chown mambauser:mambauser /isofit_inputs
 USER mambauser
 #RUN mkdir -p /home/mambauser/.isofit
 WORKDIR /home/mambauser
@@ -39,6 +50,9 @@ RUN python -m ipykernel install --user --name isofit &&\
     pip install -e ISOFIT
 # note: here we are now skipping embedding the ISOFIT data into the image
 
+# Install isofit-plots. isofit env should already be active/loaded
+pip install git+https://github.com/isofit/isofit-plots
+
 # Create a symlink from the host isofit_data location to /home/mambauser
 RUN cd /home/mambauser &&\
     ln -s /isofit_data/ .
@@ -48,6 +62,9 @@ ENV SHELL="/bin/bash"
 
 # Ray Dashboard port
 EXPOSE 8265
+
+# ISOFIT Plots port
+EXPOSE 8080
 
 # Start the Jupyterlab server
 EXPOSE 8888

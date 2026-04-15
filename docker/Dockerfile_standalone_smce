@@ -1,11 +1,11 @@
 FROM mambaorg/micromamba
 
-#!! NOTE: Temporary - to be replaced with version that will run within the airborne SMCE hub env
-
 USER root
 RUN apt-get update &&\
     apt-get install --no-install-recommends -y \
+        build-essential \
         gcc \
+        g++ \
         gfortran \
         make \
         unzip \
@@ -14,7 +14,12 @@ RUN apt-get update &&\
         wget \
         curl \
         git \
-        htop
+        htop \
+        flex \
+        libnetcdff-dev \
+        libgsl-dev \
+        gsl-bin \
+        perl
 
 RUN mkdir -p /isofit_data
 RUN chown mambauser:mambauser /isofit_data
@@ -28,7 +33,7 @@ COPY --chown=mambauser:mambauser isofit/ ISOFIT/
 RUN micromamba config prepend channels conda-forge &&\
     micromamba update  --all --yes --quiet &&\
     micromamba install --name base --quiet jupyterlab &&\
-    micromamba create  --name isofit python=3.10 &&\
+    micromamba create  --name isofit --quiet python=3.11 &&\
     micromamba install --name isofit --quiet --file ISOFIT/recipe/isofit.yml \
                                      --quiet --file ISOFIT/recipe/docker.yml &&\
     echo "micromamba activate isofit" >> ~/.bashrc
