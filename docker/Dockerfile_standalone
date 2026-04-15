@@ -51,7 +51,7 @@ RUN python -m ipykernel install --user --name isofit &&\
 # note: here we are now skipping embedding the ISOFIT data into the image
 
 # Install isofit-plots. isofit env should already be active/loaded
-pip install git+https://github.com/isofit/isofit-plots
+RUN pip install git+https://github.com/isofit/isofit-plots
 
 # Create a symlink from the host isofit_data location to /home/mambauser
 RUN cd /home/mambauser &&\
