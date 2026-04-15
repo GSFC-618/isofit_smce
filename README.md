@@ -21,6 +21,9 @@ More extensive documentation can be found on the wiki pages: https://github.com/
 git submodule update --init --recursive
 
 git submodule update --remote --merge
+
+git submodule update --remote isofit
+
 ```
 
 ### To build the images locally, run
