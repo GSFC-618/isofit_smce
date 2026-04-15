@@ -3,7 +3,9 @@ FROM mambaorg/micromamba
 USER root
 RUN apt-get update &&\
     apt-get install --no-install-recommends -y \
-       gcc \ 
+       build-essential \
+       gcc \
+       g++ \
        gfortran \
        make \
        unzip \
@@ -12,7 +14,12 @@ RUN apt-get update &&\
        wget \
        curl \
        git \
-       htop
+       htop \
+       flex \
+       libnetcdff-dev \
+       libgsl-dev \
+       gsl-bin \
+       perl
 
 RUN mkdir -p /isofit_data
 RUN chown mambauser:mambauser /isofit_data
